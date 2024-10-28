@@ -13,10 +13,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 2em 0;
 }
 
 #personal {
-    margin-top: 1.8em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,5 +74,9 @@ a span {
 @media (max-width: 600px) {
     #trabajos {
         margin: 1.2em auto;
+    }
+
+    html {
+        font-size: 14px;
     }
 }
