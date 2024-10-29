@@ -49,7 +49,7 @@ body {
     font-size: 1.35em;
 }
 
-a {
+#trabajos a {
     border-radius: 10px;
     border: 1px purple solid;
     padding: 1em;
@@ -61,7 +61,32 @@ a {
     align-items: center;
     width: 100%;
     height: 4em;
+    overflow: hidden;
+    position: relative;
+    transition: color 0.25s;
 }
+
+#trabajos a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background-color: purple;
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+#trabajos a:hover::before {
+    left: 0;
+}
+
+#trabajos a:hover {
+    color: white;
+    z-index: 1;
+}
+
 
 a img {
     width: 40px; 
@@ -74,6 +99,9 @@ a span {
     text-align: left;
     margin-left: 1em;
 }
+
+
+
 
 
 @media (max-width: 600px) {
