@@ -1,17 +1,13 @@
 // Lista de imágenes que deseas almacenar en caché
 const imagesToCache = [
     './img/hugo-1.png',
-    './img/hugo-2.png',
+    './img/hugo-2.png'
 ];
 
 // Función para precargar imágenes en la caché
 async function cacheImages() {
-    // Verifica si la API de Cache Storage es compatible
     if ('caches' in window) {
-        // Abre o crea una caché específica
         const cache = await caches.open('my-image-cache');
-
-        // Agrega cada imagen a la caché
         try {
             await cache.addAll(imagesToCache);
             console.log('Imágenes almacenadas en la caché:', imagesToCache);
@@ -23,5 +19,14 @@ async function cacheImages() {
     }
 }
 
+// Precargar la imagen de fondo
+const backImage = new Image();
+backImage.src = './img/hugo-2.png'; // Ruta de la imagen de fondo
+backImage.onload = function() {
+    console.log('La imagen de fondo se ha precargado correctamente');
+};
+
 // Llama a la función al cargar la página
-window.onload = cacheImages;
+window.onload = function() {
+    cacheImages();
+};

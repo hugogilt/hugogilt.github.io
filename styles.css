@@ -129,9 +129,6 @@ body {
 }
 
 .flip-card-back {
-    background-image: url('./img/hugo-2.png'); /* La imagen trasera se carga como fondo */
-    background-size: cover; /* Ajusta el fondo para cubrir todo el espacio */
-    background-position: center; /* Centra la imagen de fondo */
     transform: rotateY(180deg); /* Rota la parte trasera para que se muestre correctamente */
 }
 
