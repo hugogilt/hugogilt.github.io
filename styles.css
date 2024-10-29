@@ -60,13 +60,15 @@ a {
 }
 
 a img {
-    width: 30px; 
+    width: 40px; 
     height: auto;
+    border-radius: 20px;
 }
 
 a span {
     flex-grow: 1;
-    text-align: center;
+    text-align: left;
+    margin-left: 1em;
 }
 
 
