@@ -23,6 +23,16 @@ function startBouncing() {
 }
 
 
+function eliminarSaltos() {
+  clearInterval(bounceInterval);
+  image.style.animation = '';
+}
+
+function eventListenerImageMovil() {
+  eliminarSaltos();
+  flipCardInner.classList.toggle('clicked');
+}
+
 
 function checkHoverSupport() {
   if (window.matchMedia('(hover: hover)').matches) { //SI ESTÁ EN UN ORDENADOR
@@ -31,11 +41,8 @@ function checkHoverSupport() {
       job.style.removeProperty('color')
     }
     // Detener el "saltito" al hacer mouseover
-    image.addEventListener('mouseover', () => {
-      clearInterval(bounceInterval);
-      image.style.animation = '';
-    });
-    image.addEventListener('click', () => {});
+    image.addEventListener('mouseover', eliminarSaltos);
+    flipCard.removeEventListener('click', eventListenerImageMovil);
     document.body.classList.remove("movil");
     flipCardInner.classList.remove("clicked");
 
@@ -45,12 +52,8 @@ function checkHoverSupport() {
       job.style.color = 'black';
     }
     // Detener el "saltito" al hacer click
-    flipCard.addEventListener('click', () => {
-      clearInterval(bounceInterval);
-      image.style.animation = '';
-      flipCardInner.classList.toggle('clicked');
-    });
-    image.addEventListener('mouseover', () => {});
+    flipCard.addEventListener('click', eventListenerImageMovil);
+    image.removeEventListener('mouseover', eliminarSaltos);
     document.body.classList.add("movil");
   }
 }
